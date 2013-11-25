@@ -1,0 +1,13 @@
+# BlueJ project files
+package.bluej
+*.class
+
+# Eclipse files
+gen/
+bin/
+
+# General OS junk files
+*~
+[Tt]humbs.db
+*.DS_Store
+*.bak*
