@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.Arrays;
 /**
  * Write a description of class UserInteraction here.
  * 
@@ -7,6 +9,9 @@ import java.util.Scanner;
  */
 public class UserInteraction
 {
+
+    static final List<String> CALCULATOR_CMDS = Arrays.asList(new String[]{"a", "s", "m", "d"});
+
     public static void main(String[] args)
     {
         // Create Calculator object
@@ -15,7 +20,7 @@ public class UserInteraction
         // Initialize Scanner for taking user input
         Scanner in = new Scanner(System.in);
 
-        /* Setup an infinite loop so that the user may run multiple calculationswithout
+        /* Setup an infinite loop so that the user may run multiple calculations without
          * restarting this program
          */
         while(true) {
@@ -26,56 +31,62 @@ public class UserInteraction
             // Wait on user input
             String ui = in.next();
 
-            /* Following DRY-coding:
-             * because all of the Calculator's functions require two numbers to be inputted,
-             * this program shall ask for the input before the if-statements so that each
-             * statement can simply use these values instead of having to ask for it in each
-             * if-block.
+            /* Use a list of the possible responses, "a" "s" "m" "d", to check if the 
+             * user's response was valid
              */
-            print("First Number: ");
-            double a = in.nextDouble();
-            print("Second Number: ");
-            double b = in.nextDouble();
+            if (CALCULATOR_CMDS.contains(ui)) {
 
-            // Select course of action based on user input
-            if (ui.equals("a")) {
-                double result = calc.add(a, b);
-                println(
-                    String.valueOf(a) +
-                    " + " +
-                    String.valueOf(b) +
-                    " = " +
-                    String.valueOf(result)
-                );
-            } else if (ui.equals("s")) {
-                double result = calc.subtract(a, b);
-                println(
-                    String.valueOf(a) +
-                    " - " +
-                    String.valueOf(b) +
-                    " = " +
-                    String.valueOf(result)
-                );
-            } else if (ui.equals("m")) {
-                double result = calc.multiply(a, b);
-                println(
-                    String.valueOf(a) +
-                    " * " +
-                    String.valueOf(b) +
-                    " = " +
-                    String.valueOf(result)
-                );
-            } else if (ui.equals("d")) {
-                double result = calc.divide(a, b);
-                println(
-                    String.valueOf(a) +
-                    " / " +
-                    String.valueOf(b) +
-                    " = " +
-                    String.valueOf(result)
-                );
+                /* Following DRY-coding:
+                 * because all of the Calculator's functions require two numbers to be inputted,
+                 * this program shall ask for the input before the if-statements so that each
+                 * statement can simply use these values instead of having to ask for it in each
+                 * if-block.
+                 */
+                print("First Number: ");
+                double a = in.nextDouble();
+                print("Second Number: ");
+                double b = in.nextDouble();
+
+                // Select course of action based on user input
+                if (ui.equals("a")) {
+                    double result = calc.add(a, b);
+                    println(
+                        String.valueOf(a) +
+                        " + " +
+                        String.valueOf(b) +
+                        " = " +
+                        String.valueOf(result)
+                    );
+                } else if (ui.equals("s")) {
+                    double result = calc.subtract(a, b);
+                    println(
+                        String.valueOf(a) +
+                        " - " +
+                        String.valueOf(b) +
+                        " = " +
+                        String.valueOf(result)
+                    );
+                } else if (ui.equals("m")) {
+                    double result = calc.multiply(a, b);
+                    println(
+                        String.valueOf(a) +
+                        " * " +
+                        String.valueOf(b) +
+                        " = " +
+                        String.valueOf(result)
+                    );
+                } else if (ui.equals("d")) {
+                    double result = calc.divide(a, b);
+                    println(
+                        String.valueOf(a) +
+                        " / " +
+                        String.valueOf(b) +
+                        " = " +
+                        String.valueOf(result)
+                    );
+                }
             }
-            
+
             // Print a newline at the end of each loop to provide display clarity
             println("");
         }
