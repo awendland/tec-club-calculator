@@ -47,44 +47,37 @@ public class UserInteraction
                 print("Second Number: ");
                 double b = in.nextDouble();
 
+                /* Following DRY-coding:
+                 * because each if-statement results in some variation of
+                 * "{a} {operation} {b} = {result}", place the print statement at the end of all of
+                 * the if-blocks and use variables initiated here to populate the text to be displayed
+                 */
+                String operation = "?";
+                double result = Double.NaN;
+                
                 // Select course of action based on user input
                 if (ui.equals("a")) {
-                    double result = calc.add(a, b);
-                    println(
-                        String.valueOf(a) +
-                        " + " +
-                        String.valueOf(b) +
-                        " = " +
-                        String.valueOf(result)
-                    );
+                    operation = "+";
+                    result = calc.add(a, b);
                 } else if (ui.equals("s")) {
-                    double result = calc.subtract(a, b);
-                    println(
-                        String.valueOf(a) +
-                        " - " +
-                        String.valueOf(b) +
-                        " = " +
-                        String.valueOf(result)
-                    );
+                    operation = "-";
+                    result = calc.subtract(a, b);
                 } else if (ui.equals("m")) {
-                    double result = calc.multiply(a, b);
-                    println(
-                        String.valueOf(a) +
-                        " * " +
-                        String.valueOf(b) +
-                        " = " +
-                        String.valueOf(result)
-                    );
+                    operation = "*";
+                    result = calc.multiply(a, b);
                 } else if (ui.equals("d")) {
-                    double result = calc.divide(a, b);
-                    println(
-                        String.valueOf(a) +
-                        " / " +
-                        String.valueOf(b) +
-                        " = " +
-                        String.valueOf(result)
-                    );
+                    operation = "/";
+                    result = calc.divide(a, b);
                 }
+                
+                // Print expression and result to user
+                println(
+                    String.valueOf(a) +
+                    " " + operation + " " +
+                    String.valueOf(b) +
+                    " = " +
+                    String.valueOf(result)
+                );
             }
 
             // Print a newline at the end of each loop to provide display clarity
