@@ -1,6 +1,8 @@
 # BlueJ project files
 package.bluej
 *.class
+*.ctxt
+doc/
 
 # Eclipse files
 gen/
