@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class UserInteraction
 {
 
-    static final List<String> CALCULATOR_CMDS = Arrays.asList(new String[]{"a", "s", "m", "d"});
+    static final List<String> CALCULATOR_CMDS = Arrays.asList(new String[]{"a", "s", "m", "d", "p"});
 
     public static void main(String[] args)
     {
@@ -26,7 +26,7 @@ public class UserInteraction
         while(true) {
 
             // Display a request for user input
-            print("Would you like to add, subtract, multiply, or divide?\na/s/m/d: ");
+            print("Would you like to add, subtract, multiply, divide, or power?\na/s/m/d/p: ");
 
             // Wait on user input
             String ui = in.next();
@@ -68,6 +68,9 @@ public class UserInteraction
                 } else if (ui.equals("d")) {
                     operation = "/";
                     result = calc.divide(a, b);
+                } else if (ui.equals("p")) {
+                    operation = "^";
+                    result = calc.power(a, (int) b);
                 }
                 
                 // Print expression and result to user

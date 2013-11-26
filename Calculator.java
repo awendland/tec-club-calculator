@@ -26,7 +26,7 @@ public class Calculator
     {
         return a + b;
     }
-    
+
     /**
      * Subtract one number from another
      * 
@@ -38,7 +38,7 @@ public class Calculator
     {
         return a - b;
     }
-    
+
     /**
      * Multiply two numbers
      * 
@@ -50,7 +50,7 @@ public class Calculator
     {
         return a * b;
     }
-    
+
     /**
      * Divide one number into another
      * 
@@ -61,5 +61,25 @@ public class Calculator
     public double divide(double a, double b)
     {
         return a / b;
+    }
+
+    /**
+     * Raise one number to the power of another. This uses a simple for-loop style 
+     * algorithm and cannot handle negative exponents or fractional exponents, 
+     * only integers >= 0 are supported.
+     * 
+     * @param  a    double value for the base
+     * @param b int value for the exponent
+     * @return     the result of a raised to the b 
+     */
+    public double power(double a, int b)
+    {
+        double result = 1.0;
+
+        for(int i = 0; i < b; i++) {
+            result *= a;
+        }
+        
+        return result;
     }
 }
