@@ -65,8 +65,7 @@ public class Calculator
 
     /**
      * Raise one number to the power of another. This uses a simple for-loop style 
-     * algorithm and cannot handle negative exponents or fractional exponents, 
-     * only integers >= 0 are supported.
+     * algorithm and cannot handle fractional exponents, only integers are supported.
      * 
      * @param  a    double value for the base
      * @param b int value for the exponent
@@ -74,12 +73,26 @@ public class Calculator
      */
     public double power(double a, int b)
     {
+        // Is b positive? Or is it negative?
+        boolean isExpPos = b >= 0;
+
+        // Take absolute value of b for looping purposes
+        int absExp = isExpPos ? b : -b;
+
+        // Store result in a variable. This variable will be updated with each iteration of the loop.
         double result = 1.0;
 
-        for(int i = 0; i < b; i++) {
+        for(int i = 0; i < absExp; i++) {
             result *= a;
         }
-        
-        return result;
+
+        // If b is positive, simply return the result
+        if (isExpPos) {
+            return result;
+        } 
+        // If exponent is negative, then return the inverse of the result.
+        else {
+            return 1.0 / result;
+        }
     }
 }
